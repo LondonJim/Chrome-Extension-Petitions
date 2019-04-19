@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Random Petitions",
+  "version": "0.1",
+  "content_scripts": [
+  {
+    "matches": [
+      "https://news.google.com/*"
+    ],
+    "js": ["content.js"]
+  }
+]
+}
