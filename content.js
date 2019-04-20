@@ -13,6 +13,11 @@ div.appendChild(randomizeButton)
 
 randomizeButton.textContent = "Next Random Petition"
 
+let infoButton = document.createElement('button')
+div.appendChild(infoButton)
+
+infoButton.textContent = "More Information"
+
 let st = div.style;
 st.padding = "5px";
 st.display = "block";
@@ -31,10 +36,17 @@ document.documentElement.appendChild(div);
 
 let petitions = []
 let randomPetition = []
+let randomPetitionId = []
 
 randomizePetition = () => {
   randomPetition = petitions[Math.floor(Math.random() * petitions.length)]
+  randomPetitionId = randomPetition.id
   innerText.textContent = randomPetition.attributes.action
+}
+
+linkToPetition = () => {
+  let url = `https://petition.parliament.uk/petitions/${randomPetitionId}`
+  window.open(url, '_blank')
 }
 
 fetch('https://petition.parliament.uk/petitions.json?page=1&state=open')
@@ -45,3 +57,4 @@ fetch('https://petition.parliament.uk/petitions.json?page=1&state=open')
       })
 
 randomizeButton.addEventListener("click", randomizePetition)
+infoButton.addEventListener("click", linkToPetition)
