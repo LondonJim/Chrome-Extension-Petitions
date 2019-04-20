@@ -1,4 +1,4 @@
-let toolbarHeight = 50;
+let toolbarHeight = 56;
 
 let div = document.createElement("div");
 div.id = "myToolbar";
@@ -9,16 +9,22 @@ div.appendChild(innerText)
 innerText.textContent = "Loading Petitions...";
 
 let randomizeButton = document.createElement('button')
+randomizeButton.className = "buttons"
 div.appendChild(randomizeButton)
 
 randomizeButton.textContent = "Next Random Petition"
 
 let infoButton = document.createElement('button')
+infoButton.className = "buttons"
 div.appendChild(infoButton)
 
 infoButton.textContent = "More Information"
 
+console.log(document.getElementsByClassName('buttons'))
+let buttons = document.getElementsByClassName('buttons')
+
 let st = div.style;
+st.textAlign = "center";
 st.padding = "5px";
 st.display = "block";
 st.top = "0px";
@@ -27,12 +33,20 @@ st.width = "100%";
 st.height = toolbarHeight + "px";
 st.background = "#008800";
 st.color = "#FFFFFF";
-st.fontSize = "24px";
+st.fontSize = "16px";
 st.fontFamily = "Helvetica Neue"
 st.position = "fixed";
 
 document.body.style.webkitTransform = "translateY(" + toolbarHeight + "px)";
 document.documentElement.appendChild(div);
+
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].style.padding = "2px"
+  buttons[i].style.fontSize = "13px"
+  buttons[i].style.background = "#FFFFFF"
+  buttons[i].style.margin = "4px 2px"
+  buttons[i].style.borderRadius = "8px"
+}
 
 let petitions = []
 let randomPetition = []
