@@ -1,0 +1,65 @@
+body {
+  margin: 0px;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 500px;
+  height: 100px;
+  font-size: 20px;
+  font-family: Helvetica;
+}
+
+#heading {
+  padding: 5px;
+  background: #008800;
+  color: #FFFFFF;
+  height: 50px;
+}
+
+#petition-count {
+  font-size: 20px;
+}
+
+#information {
+  background: #FFFFFF;
+  color: black;
+  height: 50px;
+}
+
+#petition-count {
+  padding: 5px;
+  margin: 5px;
+}
+
+#link-container {
+  font-size: 13px;
+}
+
+#view-link-message {
+  float: left;
+  margin: 5px;
+}
+
+#change-link {
+  float: right;
+  margin: 5px;
+  background-color: #008800;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#view-link {
+  background:none!important;
+  color:#0000EE;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  /*border is optional*/
+  border-bottom:1px solid #0000EE;
+  cursor: pointer;
+}
