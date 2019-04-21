@@ -26,5 +26,6 @@ The petitions are based on a current news item I'm viewing.
 
 This would involve matching petition title text and petition paragraph text to the current page news item text. Most likely the user will see petitions that are completely against what they believe but hopefully some will resonate with them!
 
+
 ## Current example
 ![Image description](./assets/screen-shot.png)
