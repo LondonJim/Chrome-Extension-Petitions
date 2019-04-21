@@ -1,4 +1,5 @@
-let petitions
+let promises = []
+let petitions = []
 let randomPetition
 let randomPetitionId
 
@@ -18,12 +19,34 @@ numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-fetch('https://petition.parliament.uk/petitions.json?page=1&state=open')
-      .then(results => { return results.json()})
-      .then(jsonResults => {
-        petitions = jsonResults.data
-        displayRandomizePetition()
-      })
+returnResults = () => {
+  petitions = petitions.flat()
+  displayRandomizePetition()
+}
 
-document.getElementById("change-link").addEventListener("click", displayRandomizePetition)
-document.getElementById("view-link").addEventListener("click", linkToPetition)
+addToPetitions = (jsonResults) => {
+  petitions.push(jsonResults)
+}
+
+getPetitions = () => {
+  for (let i = 1; i <= 40; i++) {
+    let promise = fetch(`https://petition.parliament.uk/petitions.json?page=${i}&state=open`)
+            .then(results => { return results.json()})
+            .then (jsonResults => {
+                addToPetitions(jsonResults.data)
+            })
+    promises.push(promise)
+  }
+}
+
+execute = () => {
+  getPetitions()
+  Promise.all(promises)
+    .then(values => {
+      returnResults()
+      document.getElementById("change-link").addEventListener("click", displayRandomizePetition)
+      document.getElementById("view-link").addEventListener("click", linkToPetition)
+    })
+}
+
+execute()
