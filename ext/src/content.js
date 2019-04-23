@@ -12,7 +12,7 @@ class DisplayPetitions {
     Promise.all(this.promises)
       .then(values => {
         this.returnResults()
-        document.getElementById("change-link")
+        document.getElementById("next-petition")
           .addEventListener("click", this.displayRandomizePetition)
         document.getElementById("view-link")
           .addEventListener("click", this.linkToPetition)

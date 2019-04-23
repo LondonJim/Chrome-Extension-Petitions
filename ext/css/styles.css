@@ -9,6 +9,11 @@ body {
   font-family: Helvetica;
 }
 
+span.block {
+  display: block;
+  text-align: center;
+}
+
 #heading {
   padding: 5px;
   background: #008800;
@@ -31,27 +36,34 @@ body {
   margin: 5px;
 }
 
-#link-container {
-  font-size: 13px;
-}
-
 #view-link-message {
   float: left;
+  font-size: 13px;
   margin: 5px;
 }
 
-#change-link {
-  float: right;
+#next-petition,
+#random-petition,
+#start-petition,
+#previous-petition {
   margin: 5px;
   background-color: #008800;
   border: none;
+  width: 110px;
   color: #FFFFFF;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 13px;
   cursor: pointer;
 }
+
+#next-petition {
+  float: right;
+}
+
+#previous-petition {
+  float: left;
+}
+
 
 #view-link {
   background:none!important;
