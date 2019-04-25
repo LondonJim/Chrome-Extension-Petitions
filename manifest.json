@@ -2,13 +2,30 @@
   "manifest_version": 2,
   "name": "Random Petitions",
   "version": "0.1",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+
   "icons": {
-    "16": "./ext/icons/icon16.png",
-    "32": "./ext/icons/icon32.png",
-    "48": "./ext/icons/icon48.png",
-    "128": "./ext/icons/icon128.png"
+    "16": "./icons/icon16.png",
+    "32": "./icons/icon32.png",
+    "48": "./icons/icon48.png",
+    "128": "./icons/icon128.png"
   },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
   "browser_action": {
-    "default_popup": "./ext/petitions.html"
+    "default_popup": "./popup/petitions.html"
   }
+
 }

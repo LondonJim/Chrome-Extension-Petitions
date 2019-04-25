@@ -37,15 +37,15 @@ span.block {
 }
 
 #view-link-message {
+  visibility: hidden;
   float: left;
   font-size: 13px;
   margin: 5px;
 }
 
-#next-petition,
 #random-petition,
 #start-petition,
-#previous-petition {
+#headline-petition {
   margin: 5px;
   background-color: #008800;
   border: none;
@@ -56,11 +56,11 @@ span.block {
   cursor: pointer;
 }
 
-#next-petition {
+#headline-petition {
   float: right;
 }
 
-#previous-petition {
+#random-petition {
   float: left;
 }
 
