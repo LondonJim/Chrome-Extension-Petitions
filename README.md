@@ -52,4 +52,4 @@ I get notification of no relevant petitions found
 Refactoring, cleaning up code, specs
 
 ## Current example
-![Image description](./assets/screen-shot.png)
+![Image description](./assets/screen-shot-news.png)
