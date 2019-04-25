@@ -9,6 +9,7 @@ chrome.runtime.onMessage.addListener(
             }
           }
           sendHeadline(headlineString)
+          console.log(headlineString)
           console.log(headlineString.length)
         }
         return true;

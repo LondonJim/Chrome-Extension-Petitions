@@ -64,6 +64,11 @@ class DisplayPetitions {
   }
 
   cosine = () => {
+    if (this.headline === "") {
+      this.noRelevantPetition()
+      return
+    }
+
     let topPetitionRating = 0
     let topPetitionIndex = 0
 
@@ -77,8 +82,7 @@ class DisplayPetitions {
     })
 
     if (topPetitionRating === 0) {
-      document.getElementById("heading")
-        .innerText = "No suitable petition found"
+      this.noRelevantPetition()
     } else {
       this.petition = this.petitions[topPetitionIndex]
       this.petitionId = this.petition.id
@@ -87,6 +91,11 @@ class DisplayPetitions {
       console.log(this.headline)
       this.displayPetition()
     }
+  }
+
+  noRelevantPetition = () {
+    document.getElementById("heading")
+      .innerText = "No relevant petition found"
   }
 
   linkToPetition = () => {
