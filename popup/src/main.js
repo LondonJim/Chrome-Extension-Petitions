@@ -39,6 +39,7 @@ class DisplayPetitions {
     document.getElementById("view-link-message").style.visibility = "visible"
     document.getElementById("heading")
       .innerText = this.petition.attributes.action
+    document.getElementById("petition-count").style.visibility = "visible"
     document.getElementById("petition-count")
       .innerText = this.numberWithCommas(this.petition.attributes.signature_count) + " signatures so far!"
   }
@@ -96,6 +97,8 @@ class DisplayPetitions {
   noRelevantPetition = () => {
     document.getElementById("heading")
       .innerText = "No relevant petition found"
+    document.getElementById("view-link-message").style.visibility = "hidden"
+    document.getElementById("petition-count").style.visibility = "hidden"
   }
 
   linkToPetition = () => {
