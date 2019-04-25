@@ -38,8 +38,16 @@ span.block {
 
 #view-link-message {
   visibility: hidden;
-  float: left;
   font-size: 13px;
+}
+
+#view-link-button-sentence {
+  float: left;
+  margin: 5px;
+}
+
+#view-link-like-message {
+  float: right;
   margin: 5px;
 }
 
