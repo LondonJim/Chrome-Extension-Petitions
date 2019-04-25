@@ -3,7 +3,7 @@
   "name": "Random Petitions",
   "version": "0.1",
   "permissions": [
-    "tabs", "http://*/*", "https://*/*"
+    "activeTab"
   ],
 
   "icons": {
