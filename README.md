@@ -49,5 +49,7 @@ So I do not get totally irrelevant results,
 I get notification of no relevant petitions found
 ```
 
+Refactoring, cleaning up code, specs
+
 ## Current example
 ![Image description](./assets/screen-shot.png)
