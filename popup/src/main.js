@@ -93,7 +93,7 @@ class DisplayPetitions {
     }
   }
 
-  noRelevantPetition = () {
+  noRelevantPetition = () => {
     document.getElementById("heading")
       .innerText = "No relevant petition found"
   }
