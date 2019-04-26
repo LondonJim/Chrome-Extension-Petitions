@@ -19,7 +19,7 @@ Currently to install you will have to enter developer mode on your chrome extens
 
 Toggle Developer Mode on the right hand side
 
-Click on Load unpacked and select the folder of the extension
+Click on Load unpacked and select the folder of the extension, a green p icon will appear top left of the chrome browser, clicking on it brings up the popup.
 
 ## Recently Completed
 
