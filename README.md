@@ -3,7 +3,7 @@
 
 I had an idea to create a chrome extension that related to the government petition site and getting more people become active in so much as signing more petitions.
 
-Currently on clicking the icon a popup occurs, loads the petitions in, then the user can select either a random petition, start a new petition or view the headline based petition. It then displays the current signature count and gives the user an option to visit the page of the specific petition.
+Currently on clicking the icon a popup occurs, loads the petitions in, then the user can select either a random petition, start a new petition or view the suggested headline based petition. It then displays the current signature count and gives the user an option to visit the page of the specific petition.
 
 This extension can be used on any news website.
 
@@ -41,12 +41,6 @@ Involves cleansing of the strings and using cosine similarity code from https://
 As a user,
 So I can view more than one relevant petition,
 The headline based petitions can be offered in order of relevance
-```
-
-```
-As a user,
-So I do not get totally irrelevant results,
-I get notification of no relevant petitions found
 ```
 
 Refactoring, cleaning up code, specs
