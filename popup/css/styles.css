@@ -32,8 +32,7 @@ span.block {
 }
 
 #petition-count {
-  padding: 5px;
-  margin: 5px;
+  margin: 5px 5px 10px 5px;
 }
 
 #view-link-message {
@@ -57,7 +56,7 @@ span.block {
   margin: 5px;
   background-color: #008800;
   border: none;
-  width: 110px;
+  width: 120px;
   color: #FFFFFF;
   text-decoration: none;
   font-size: 13px;
@@ -79,7 +78,6 @@ span.block {
   border:none;
   padding:0!important;
   font: inherit;
-  /*border is optional*/
   border-bottom:1px solid #0000EE;
   cursor: pointer;
 }
