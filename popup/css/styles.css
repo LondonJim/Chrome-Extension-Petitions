@@ -9,9 +9,31 @@ body {
   font-family: Helvetica;
 }
 
-span.block {
-  display: block;
+.button-block {
+  visibility: hidden;
   text-align: center;
+}
+
+.main-content {
+  position: relative;
+}
+
+.loader {
+  position: relative;
+  top: 15px;
+  left: calc(50% - 40px);
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #005500;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #heading {
@@ -32,22 +54,23 @@ span.block {
 }
 
 #petition-count {
-  margin: 5px 5px 10px 5px;
+  margin: 0px 5px 0px 5px;
 }
 
 #view-link-message {
   visibility: hidden;
   font-size: 13px;
+  margin: 15px 5px 0px 5px;
 }
 
 #view-link-button-sentence {
   float: left;
-  margin: 5px;
+  padding-left: 5px;
 }
 
 #view-link-like-message {
   float: right;
-  margin: 5px;
+  padding-right: 5px;
 }
 
 #random-petition,
@@ -69,6 +92,10 @@ span.block {
 
 #random-petition {
   float: left;
+}
+
+#start-petition {
+  margin:0 auto!important;
 }
 
 

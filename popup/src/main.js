@@ -19,12 +19,13 @@ class DisplayPetitions {
       .then(values => {
         this.petitions = this.petitions.flat()
         document.getElementById("heading")
-          .innerText = "Select option below"
+          .innerText = "Select option"
         this.displayButtons()
       })
   }
 
   displayButtons = () => {
+    document.getElementsByClassName("button-block")[0].style.visibility = "visible"
     document.getElementById("headline-petition")
       .addEventListener("click", this.headlinePetition)
     document.getElementById("start-petition")
