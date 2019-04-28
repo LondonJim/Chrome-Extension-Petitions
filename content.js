@@ -17,5 +17,3 @@ chrome.runtime.onMessage.addListener(
 sendHeadline = (headlineString) => {
   chrome.runtime.sendMessage({headline: headlineString})
 }
-
-chrome.runtime.sendMessage({status: "ready"})

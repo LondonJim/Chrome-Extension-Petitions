@@ -1,8 +1,9 @@
 class DisplayPetitions {
 
-  constructor(cleanseString = CleanseString.parse, cosineSimilarity = CosineSimilarity.compareText) {
+  constructor(cleanseString = CleanseString.parse, cosineSimilarity = CosineSimilarity.compareText, getPetitions = new GetPetitions) {
     this.cleanseString = cleanseString
     this.cosineSimilarity = cosineSimilarity
+    this.getPetitions = getPetitions
     this.headline = ""
     this.headlines = []
     this.promises = []
@@ -10,16 +11,15 @@ class DisplayPetitions {
     this.petition = []
     this.petitionId = 0
     this.petitionString
-  }
+  };
 
   execute = () => {
-    this.getHeadline()
-    this.getPetitions()
-    Promise.all(this.promises)
-      .then(values => {
-        this.petitions = this.petitions.flat()
-        document.getElementById("heading")
-          .innerText = "Select option"
+    this.headlineListener();
+    this.getPetitions.allPetitionPages()
+      .then(petitions => {
+        this.petitions = petitions
+        document.getElementById("heading").innerText = "Select option"
+        this.getHeadlineMessage()
         this.displayButtons()
       })
   }
@@ -113,44 +113,21 @@ class DisplayPetitions {
   }
 
   numberWithCommas = (x) => {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  addToPetitions = (jsonResults) => {
-    this.petitions.push(jsonResults)
-  }
-
-  getPetitions = () => {
-    for (let i = 1; i <= 40; i++) {
-      let promise = fetch(`https://petition.parliament.uk/petitions.json?page=${i}&state=open`)
-              .then(results => { return results.json()})
-              .then (jsonResults => {
-                  this.addToPetitions(jsonResults.data)
-              })
-      this.promises.push(promise)
-    }
-  }
-
-  getHeadline = () => {
-    this.recieveHeadline()
-  }
-
-  recieveHeadline = () => {
-    let startGetHeadline = this.startGetHeadline()
+  headlineListener = () => {
     let that = this
     chrome.runtime.onMessage.addListener(
       function(request, sender, sendResponse) {
         if (!!request.headline) {
             that.headline = request.headline
-        } else if (request.status === "ready") {
-            startGetHeadline
-          return true;
         }
         return true;
       });
   }
 
-  startGetHeadline = (domContent) => {
+  getHeadlineMessage = () => {
     chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
       var activeTab = tabs[0];
       chrome.tabs.sendMessage(activeTab.id, {"message": "start"});
