@@ -1,20 +1,17 @@
 class DisplayPetitions {
 
-  constructor(cleanseString = CleanseString.parse, cosineSimilarity = CosineSimilarity.compareText, getPetitions = new GetPetitions) {
-    this.cleanseString = cleanseString
-    this.cosineSimilarity = cosineSimilarity
+  constructor(getPetitions = new GetPetitions,
+              cleanseMatch = new CleanseMatch) {
     this.getPetitions = getPetitions
+    this.cleanseMatch = cleanseMatch
     this.headline = ""
-    this.headlines = []
-    this.promises = []
     this.petitions = []
     this.petition = []
     this.petitionId = 0
-    this.petitionString
-  };
+  }
 
   execute = () => {
-    this.headlineListener();
+    this.headlineListener()
     this.getPetitions.allPetitionPages()
       .then(petitions => {
         this.petitions = petitions
@@ -52,46 +49,13 @@ class DisplayPetitions {
   }
 
   headlinePetition = () => {
-    this.parsePetitions()
-    this.cosine()
-  }
-
-  parsePetitions = () => {
-    this.headlines = []
-    for ( let i = 0; i <= this.petitions.length - 1; i++) {
-      this.petitionString = this.petitions[i].attributes.action + " " + this.petitions[i].attributes.background + " " + this.petitions[i].attributes.additional_details
-      this.petitionString = this.cleanseString(this.petitionString)
-      this.headlines.push(this.petitionString)
-    }
-  }
-
-  cosine = () => {
-    if (this.headline === "") {
-      this.noRelevantPetition()
-      return
-    }
-
-    let topPetitionRating = 0
-    let topPetitionIndex = 0
-
-    this.headlines.forEach((petition, index) => {
-      let parsedHeadline = this.cleanseString(this.headline)
-      let rating = this.cosineSimilarity(parsedHeadline.toLowerCase(), petition)
-      if (rating > topPetitionRating) {
-        topPetitionRating = rating
-        topPetitionIndex = index
-      }
-    })
-
-    if (topPetitionRating === 0) {
-      this.noRelevantPetition()
-    } else {
-      this.petition = this.petitions[topPetitionIndex]
+    let matchingPetitionIndex = this.cleanseMatch.execute(this.petitions, this.headline)
+    if (matchingPetitionIndex) {
+      this.petition = this.petitions[matchingPetitionIndex]
       this.petitionId = this.petition.id
-      console.log(this.petitions[topPetitionIndex])
-      console.log(topPetitionIndex)
-      console.log(this.headline)
       this.displayPetition()
+    } else {
+      noRelevantPetition()
     }
   }
 
