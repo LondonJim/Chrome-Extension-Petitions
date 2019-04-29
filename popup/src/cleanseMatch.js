@@ -7,7 +7,8 @@ class CleanseMatch {
 
   execute = (petitions, headline) => {
     let cleansedPetitions = this.parsePetitions(petitions)
-    return this.cosine(cleansedPetitions, headline)
+    let cleansedHeadline = this.cleanseString(headline)
+    return this.matchHeadlinePetition(cleansedPetitions, cleansedHeadline)
   }
 
   parsePetitions = (petitions) => {
@@ -21,17 +22,16 @@ class CleanseMatch {
     return parsedPetitions
   }
 
-  cosine = (parsedPetitions, headline) => {
-    if (headline === "") {
+  matchHeadlinePetition = (cleansedPetitions, cleansedHeadline) => {
+    if (cleansedHeadline === "") {
       return false
     }
 
     let topPetitionRating = 0
     let topPetitionIndex = 0
 
-    parsedPetitions.forEach((petition, index) => {
-      let parsedHeadline = this.cleanseString(headline)
-      let rating = this.cosineSimilarity(parsedHeadline, petition)
+    cleansedPetitions.forEach((petition, index) => {
+      let rating = this.cosineSimilarity(cleansedHeadline, petition)
       if (rating > topPetitionRating) {
         topPetitionRating = rating
         topPetitionIndex = index

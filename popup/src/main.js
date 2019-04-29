@@ -86,6 +86,3 @@ class Main {
     });
   }
 }
-
-main = new Main()
-main.execute()
