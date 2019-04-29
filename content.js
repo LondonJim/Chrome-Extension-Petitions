@@ -9,16 +9,12 @@ chrome.runtime.onMessage.addListener(
     )
 
 getHeaderTag = () => {
-  try {
-    headlineString = document.querySelectorAll('h1')[0].textContent
+  let headlineString = document.querySelectorAll('h1')[0].textContent
+  if (headlineString.length < 5) {
+    headlineString = document.querySelectorAll('h1')[1].textContent
     if (headlineString.length < 5) {
-      headlineString = document.querySelectorAll('h1')[1].textContent
-      if (headlineString.length < 5) {
-        headlineString = document.querySelectorAll('h2')[0].textContent
-      }
+      headlineString = document.querySelectorAll('h2')[0].textContent
     }
-  } catch (err) {
-    return ""
   }
   return headlineString
 }
