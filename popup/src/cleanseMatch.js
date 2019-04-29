@@ -42,9 +42,6 @@ class CleanseMatch {
       return false
     } else {
       return topPetitionIndex
-      // this.petition = this.petitions[topPetitionIndex]
-      // this.petitionId = this.petition.id
-      // this.displayPetition()
     }
   }
 
