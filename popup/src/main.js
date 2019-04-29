@@ -1,9 +1,13 @@
-class DisplayPetitions {
+class Main {
 
   constructor(getPetitions = new GetPetitions,
-              cleanseMatch = new CleanseMatch) {
+              cleanseMatch = new CleanseMatch,
+              displayHTML = DisplayHTML,
+              linksURL = 'https://petition.parliament.uk/petitions/') {
     this.getPetitions = getPetitions
     this.cleanseMatch = cleanseMatch
+    this.displayHTML = displayHTML
+    this.linksURL = linksURL
     this.headline = ""
     this.petitions = []
     this.petition = []
@@ -15,14 +19,14 @@ class DisplayPetitions {
     this.getPetitions.allPetitionPages()
       .then(petitions => {
         this.petitions = petitions
-        document.getElementById("heading").innerText = "Select option"
         this.getHeadlineMessage()
-        this.displayButtons()
+        this.displayHTML.selectMessage()
+        this.displayHTML.buttonsOn()
+        this.setButtonListeners()
       })
   }
 
-  displayButtons = () => {
-    document.getElementsByClassName("button-block")[0].style.visibility = "visible"
+  setButtonListeners = () => {
     document.getElementById("headline-petition")
       .addEventListener("click", this.headlinePetition)
     document.getElementById("start-petition")
@@ -34,12 +38,7 @@ class DisplayPetitions {
   }
 
   displayPetition = () => {
-    document.getElementById("view-link-message").style.visibility = "visible"
-    document.getElementById("heading")
-      .innerText = this.petition.attributes.action
-    document.getElementById("petition-count").style.visibility = "visible"
-    document.getElementById("petition-count")
-      .innerText = this.numberWithCommas(this.petition.attributes.signature_count) + " signatures so far!"
+    this.displayHTML.petitionOn(this.petition)
   }
 
   randomPetition = () => {
@@ -55,29 +54,18 @@ class DisplayPetitions {
       this.petitionId = this.petition.id
       this.displayPetition()
     } else {
-      noRelevantPetition()
+      this.displayHTML.noRelevantPetition()
     }
   }
 
-  noRelevantPetition = () => {
-    document.getElementById("heading")
-      .innerText = "No relevant petition found"
-    document.getElementById("view-link-message").style.visibility = "hidden"
-    document.getElementById("petition-count").style.visibility = "hidden"
-  }
-
   linkToPetition = () => {
-    let url = `https://petition.parliament.uk/petitions/${this.petitionId}`
+    let url = this.linksURL + this.petitionId
     chrome.tabs.update({active: true, url: url})
   }
 
   linktoStartPetition = () => {
-    let url = 'https://petition.parliament.uk/petitions/check'
+    let url = this.linksURL + 'check'
     chrome.tabs.update({active: true, url: url})
-  }
-
-  numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   headlineListener = () => {
@@ -99,5 +87,5 @@ class DisplayPetitions {
   }
 }
 
-display = new DisplayPetitions()
-display.execute()
+main = new Main()
+main.execute()
