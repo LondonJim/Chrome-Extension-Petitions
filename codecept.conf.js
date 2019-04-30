@@ -1,6 +1,6 @@
 exports.config = {
   tests: './tests/E2E/*_test.js',
-  output: './tests/records',
+  output: './tests/E2E/records',
   helpers: {
     Puppeteer: {
       url: '',
