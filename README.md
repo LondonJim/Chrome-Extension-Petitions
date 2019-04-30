@@ -15,11 +15,13 @@ The idea is to publish on the chrome extension store for free once complete.
 
 Currently to install you will have to enter developer mode on your chrome extensions page.
 
-`chrome://extensions` to access page
+`chrome://extensions` in the browser to access chrome extension page
 
 Toggle Developer Mode on the right hand side
 
 Click on Load unpacked and select the folder containing the extension, a green p icon will appear top left of the chrome browser, clicking on it brings up the popup.
+
+`npm install` to install End to End testing framework CodeceptJS with Puppeteer
 
 ## Recently Completed
 
@@ -34,6 +36,14 @@ This involves matching petition title text and petition paragraph text to the cu
 ## Using cosine similarity to match headlines and petition content
 
 Involves cleansing of the strings and using cosine similarity code from https://medium.com/@sumn2u/cosine-similarity-in-ember-js-2ba419d06462 to match headlines to petitions. Have used various string matrix algorithms and seem to be getting best results from the current code, although not perfect.
+
+## Testing
+
+#### End to End
+`npm test` to run
+
+Uses CodeceptJS with Puppeteer. Getting the extension popup allowed involved added some extra chrome arguments to the `codecept.conf.js` file. Accessing the popup through the extension address in the tests, eg. `chrome-extension://jmpeikanbnofmekalgkadbeakbinkjni/popup/petitions.html`, with the long letter string being the chrome ID (displayed in `chrome://extensions`).
+
 
 ## Still to complete
 
