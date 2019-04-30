@@ -21,7 +21,7 @@ Toggle Developer Mode on the right hand side
 
 Click on Load unpacked and select the folder containing the extension, a green p icon will appear top left of the chrome browser, clicking on it brings up the popup.
 
-`npm install` to install End to End testing framework CodeceptJS with Puppeteer
+`npm install` to install testing frameworks CodeceptJS with Puppeteer and Jasmine helped by babel
 
 ## Recently Completed
 
@@ -38,12 +38,40 @@ This involves matching petition title text and petition paragraph text to the cu
 Involves cleansing of the strings and using cosine similarity code from https://medium.com/@sumn2u/cosine-similarity-in-ember-js-2ba419d06462 to match headlines to petitions. Have used various string matrix algorithms and seem to be getting best results from the current code, although not perfect.
 
 ## Testing
+`npm test` to run all tests back to back
 
 #### End to End
-`npm test` to run
+`npx codeceptjs run --steps` to run
 
 Uses CodeceptJS with Puppeteer. Getting the extension popup allowed involved added some extra chrome arguments to the `codecept.conf.js` file. Accessing the popup through the extension address in the tests, eg. `chrome-extension://jmpeikanbnofmekalgkadbeakbinkjni/popup/petitions.html`, with the long letter string being the chrome ID (displayed in `chrome://extensions`).
 
+#### Unit
+`babel-node tests/unit/runTests.js` to run
+
+Uses Jasmine. I had to add `@babel/plugin-proposal-class-properties` to `babel.config.js` as I was getting errors with the use of ES6 classes. Also I used `rewire` so I did not have to add module.export the classes in the files (which was not needed except for testing).
+
+example:
+```
+let rewire = require('rewire')
+
+let cleanseString = rewire('../../popup/src/cleanseString.js')
+
+CleanseString = cleanseString.__get__('CleanseString')
+```
+Then I could use the `CleanseString` class and the static functions within it for testing.
+
+Jasmine tests had to be executed through babel-node (`babel-node tests/unit/runTests.js`) to take advantage of the ES6 syntax.
+
+`runTests.js`:
+```
+var Jasmine = require('jasmine');
+var jasmine = new Jasmine();
+
+jasmine.loadConfigFile('tests/unit/support/jasmine.json');
+
+jasmine.execute();
+
+```
 
 ## Still to complete
 
