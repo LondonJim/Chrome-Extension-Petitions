@@ -12,8 +12,10 @@ describe('.CleanseMatch', () => {
       return stringToCleanse
     }
 
+    let n = 0
     let mockCosineSimilarity = (stringToCleanse) => {
-      return 1
+      n++
+      return n
     }
 
     it('should return join strings and return a float', () => {
@@ -23,7 +25,7 @@ describe('.CleanseMatch', () => {
                        {'attributes': {'action': '20', 'background': '21', 'additional_details': '22'}},
                        {'attributes': {'action': '30', 'background': '31', 'additional_details': '32'}}]
       let headline = 'this is a test'
-      expect(cleanse.execute(petitions, headline)).toEqual(0)
+      expect(cleanse.execute(petitions, headline)).toEqual(3)
     })
   })
 })
