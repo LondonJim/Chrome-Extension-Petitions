@@ -73,6 +73,11 @@ jasmine.execute();
 
 ```
 
+## Production zip
+To publish on the chrome store the project needs to be zipped.
+
+`sh createzip` in terminal will create a zip files with all the necessary files in the root. 
+
 ## Still to complete
 
 ```
