@@ -17,10 +17,10 @@ class GetPetitions {
               })
       this.promises.push(promise)
     }
-    return this.returnPetitions().then(function(petitions) { return petitions })
+    return this._returnPetitions().then(function(petitions) { return petitions })
   }
 
-  returnPetitions = () => {
+  _returnPetitions = () => {
     return Promise.all(this.promises)
       .then(values => {
         this.petitions = this.petitions.flat()
