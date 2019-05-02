@@ -17,9 +17,9 @@ Currently to install you will have to enter developer mode on your chrome extens
 
 `chrome://extensions` in the browser to access chrome extension page
 
-Toggle Developer Mode on the right hand side
+Toggle Developer Mode on the top right hand side of the browser
 
-Click on Load unpacked and select the folder containing the extension, a green p icon will appear top left of the chrome browser, clicking on it brings up the popup.
+Click on `Load unpacked` and select the directory containing the extension, a green icon with a white x will appear top left of the chrome browser, clicking on it brings up the popup.
 
 `npm install` to install testing frameworks CodeceptJS with Puppeteer and Jasmine helped by babel
 
