@@ -1,0 +1,1 @@
+tar cf - manifest.json content.js icons popup  | gzip - > news-to-petition.zip
