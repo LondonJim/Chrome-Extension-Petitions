@@ -14,7 +14,7 @@ class DisplayHTML {
       .innerText = petition.attributes.action
     document.getElementById("petition-count").style.visibility = "visible"
     document.getElementById("petition-count")
-      .innerText = this.numberWithCommas(petition.attributes.signature_count) + " signatures so far!"
+      .innerText = this._numberWithCommas(petition.attributes.signature_count) + " signatures so far!"
   }
 
   static noRelevantPetition = () => {
@@ -24,7 +24,7 @@ class DisplayHTML {
     document.getElementById("petition-count").style.visibility = "hidden"
   }
 
-  static numberWithCommas = (x) => {
+  static _numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
