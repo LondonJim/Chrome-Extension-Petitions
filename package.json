@@ -16,7 +16,9 @@
     "rewire": "^4.0.1"
   },
   "scripts": {
-    "test": "babel-node tests/unit/runTests.js && npx codeceptjs run --steps"
+    "test": "babel-node tests/unit/runTests.js && npx codeceptjs run --steps",
+    "test:unit": "babel-node tests/unit/runTests.js",
+    "test:e2e": "npx codeceptjs run --steps"
   },
   "repository": {
     "type": "git",

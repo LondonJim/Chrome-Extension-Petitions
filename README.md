@@ -41,12 +41,12 @@ Involves cleansing of the strings and using cosine similarity code from https://
 `npm test` to run all tests back to back
 
 #### End to End
-`npx codeceptjs run --steps` to run
+`npm run test:e2e` to run
 
 Uses CodeceptJS with Puppeteer. Getting the extension popup allowed involved added some extra chrome arguments to the `codecept.conf.js` file. Accessing the popup through the extension address in the tests, eg. `chrome-extension://jmpeikanbnofmekalgkadbeakbinkjni/popup/petitions.html`, with the long letter string being the chrome ID (displayed in `chrome://extensions`).
 
 #### Unit
-`babel-node tests/unit/runTests.js` to run
+`npm run test:unit` to run
 
 Uses Jasmine. I had to add `@babel/plugin-proposal-class-properties` to `babel.config.js` as I was getting errors with the use of ES6 classes. Also I used `rewire` so I did not have to add module.export the classes in the files (which was not needed except for testing).
 
@@ -76,7 +76,7 @@ jasmine.execute();
 ## Production zip
 To publish on the chrome store the project needs to be zipped.
 
-`sh createzip` in terminal will create a zip files with all the necessary files in the root. 
+`sh createzip` in terminal will create a zip files with all the necessary files in the root.
 
 ## Still to complete
 
