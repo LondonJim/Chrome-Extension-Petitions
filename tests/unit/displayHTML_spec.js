@@ -1,30 +1,15 @@
 let rewire = require('rewire')
 
+let mockDocument = rewire('../helpers/mockDocument.js')
 let displayHTML = rewire('../../popup/src/displayHTML.js')
 
+MockDocument = mockDocument.__get__('MockDocument')
 DisplayHTML = displayHTML.__get__('DisplayHTML')
 
 describe('.DisplayHTML', () => {
-  class MockDocument {
-    constructor() {
-      this.innerText = this
-      this.style = this
-      this.visibility
-    }
-
-    getElementById() {
-      return this;
-    }
-
-    getElementsByClassName() {
-      return [this]
-    }
-  }
 
   beforeEach(() => {
-
     document = new MockDocument
-
   })
 
   describe('#selectMessage', () => {

@@ -24,6 +24,7 @@ class Main {
         this.displayHTML.buttonsOn()
         this.setButtonListeners()
       })
+    return 'complete'
   }
 
   setButtonListeners = () => {
