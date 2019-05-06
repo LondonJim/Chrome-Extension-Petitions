@@ -1,4 +1,5 @@
 class MockChrome {
+
   constructor() {
     this.runtime = this
     this.onMessage = this
@@ -9,12 +10,14 @@ class MockChrome {
     return this;
   }
 
-  sendMessage() {
+  sendMessage(id, hash) {
     return this;
   }
 
-  query() {
-    return [this]
+  query(hash, runfunction) {
+    hash
+    runfunction()
+    return this
   }
 
   update() {

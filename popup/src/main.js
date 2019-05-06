@@ -76,14 +76,15 @@ class Main {
         if (!!request.headline) {
             that.headline = request.headline
         }
-        return true;
-      });
+        return true
+      })
   }
 
   getHeadlineMessage = () => {
     chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
-      var activeTab = tabs[0];
-      chrome.tabs.sendMessage(activeTab.id, {"message": "start"});
-    });
+      if (tabs === undefined) tabs = [{'id': null}]
+      var activeTab = tabs[0]
+      chrome.tabs.sendMessage(activeTab.id, {"message": "start"})
+    })
   }
 }
