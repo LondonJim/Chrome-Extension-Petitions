@@ -88,5 +88,7 @@ The headline based petitions can be offered in order of relevance
 
 Refactoring, cleaning up code, specs
 
-## Current example
+## Current examples
 ![Image description](./assets/screen-shot.png)
+
+![Image description](./assets/screen-shot-2.png)
