@@ -1,4 +1,4 @@
-# Petitions Chrome Extension
+# Petitions Chrome Extension v.0.1.2
 
 
 I had an idea to create a chrome extension that related to the government petition site and getting more people become active in so much as signing more petitions.
@@ -8,6 +8,8 @@ Currently on clicking the icon a popup occurs, loads the petitions in, then the 
 This extension can be used on any news website.
 
 Currently published unlisted for testing here: https://chrome.google.com/webstore/detail/news-to-petition/pkbiobdkinbilfodhicdhnedacnigikb
+
+Note: Because of the long turn around with publishing on the chrome store, the published version on the store may not be the most up to date.
 
 ## Installation
 
