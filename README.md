@@ -7,7 +7,7 @@ Currently on clicking the icon a popup occurs, loads the petitions in, then the 
 
 This extension can be used on any news website.
 
-The idea is to publish on the chrome extension store for free once complete.
+Currently published unlisted for testing here: https://chrome.google.com/webstore/detail/news-to-petition/pkbiobdkinbilfodhicdhnedacnigikb
 
 ## Installation
 
